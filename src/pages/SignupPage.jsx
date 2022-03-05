@@ -3,9 +3,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/auth.context';
 
 function SignupPage() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [name, setName] = useState('');
+  const [email, setEmail] = useState('test10@hotmail.com');
+  const [password, setPassword] = useState('Albert93!');
+  const [name, setName] = useState('Albert');
+  const [location, setLocation] = useState('Vidreres');
+  const [age, setAge] = useState('18');
   const [errorMessage, setErrorMessage] = useState(undefined);
   const { signup } = useContext(AuthContext);
 
@@ -14,11 +16,13 @@ function SignupPage() {
   const handleEmail = e => setEmail(e.target.value);
   const handlePassword = e => setPassword(e.target.value);
   const handleName = e => setName(e.target.value);
+  const handleLocation = e => setLocation(e.target.value);
+  const handleAge = e => setAge(e.target.value);
 
   const handleSignupSubmit = e => {
     e.preventDefault();
     // Create an object representing the request body
-    const requestBody = { email, password, name };
+    const requestBody = { email, password, name, location, age };
 
     // Make an axios request to the API
     // If POST request is successful redirect to login page
@@ -46,6 +50,12 @@ function SignupPage() {
 
         <label>Name:</label>
         <input type="text" name="name" value={name} onChange={handleName} />
+
+        <label>Location:</label>
+        <input type="text" name="location" value={location} onChange={handleLocation} />
+
+        <label>Age:</label>
+        <input type="text" name="age" value={age} onChange={handleAge} />
 
         <button type="submit">Sign Up</button>
       </form>

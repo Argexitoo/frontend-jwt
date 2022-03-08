@@ -9,14 +9,13 @@ function Navbar() {
 
   return (
     <nav>
-      <Link to="/">
-        <button>Navbar</button>
-      </Link>
-
       {isLoggedIn && (
         <>
-          <Link to="/protected">
-            <button>Protected</button>
+          <Link to="/dogs">
+            <button>Dogs</button>
+          </Link>
+          <Link to="/meetings">
+            <button>Meetings</button>
           </Link>
 
           <button onClick={logOutUser}>Logout</button>

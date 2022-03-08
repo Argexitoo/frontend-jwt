@@ -1,12 +1,18 @@
 import { Route, Routes } from 'react-router-dom';
+
 import IsAnon from './components/IsAnon';
 import IsPrivate from './components/IsPrivate';
 import Navbar from './components/Navbar';
 import { AuthProviderWrapper } from './context/auth.context';
-import Home from './pages/Home';
+import Dogs from './pages/Dogs/Dogs';
+import Home from './pages/Profile';
 import LoginPage from './pages/LoginPage';
-import Protected from './pages/Protected';
+import Meetings from './pages/Meetings';
 import SignupPage from './pages/SignupPage';
+import Profile from './pages/Profile';
+import DogsList from './pages/Dogs/DogsList';
+import AddDog from './pages/Dogs/AddDog';
+import UpdateDog from './pages/Dogs/UpdateDog';
 
 function App() {
   return (
@@ -15,10 +21,50 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
-          path="/protected"
+          path="/profile"
           element={
             <IsPrivate>
-              <Protected />
+              <Profile />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/dogs"
+          element={
+            <IsPrivate>
+              <Dogs />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/dogs/views"
+          element={
+            <IsPrivate>
+              <DogsList />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/dogs/add"
+          element={
+            <IsPrivate>
+              <AddDog />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="dogs/:id"
+          element={
+            <IsPrivate>
+              <UpdateDog />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/meetings"
+          element={
+            <IsPrivate>
+              <Meetings />
             </IsPrivate>
           }
         />

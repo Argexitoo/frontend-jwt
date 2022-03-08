@@ -36,6 +36,26 @@ class ApiService {
     // same as
     // return axios.post("http://localhost:5005/auth/verify");
   };
+
+  getMyDogs = () => {
+    return this.api.get('/dog');
+  };
+
+  addNewDog = form => {
+    return this.api.post('/dog/add', form);
+  };
+
+  getDogId = id => {
+    return this.api.get(`/dog/${id}`);
+  };
+
+  UpdateDog = (id, body) => {
+    return this.api.post(`/dog/${id}`, body);
+  };
+
+  deleteDog = id => {
+    return this.api.delete(`/dog/${id}`);
+  };
 }
 
 // Create one instance (object) of the service

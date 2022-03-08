@@ -16,13 +16,23 @@ function UpdateDog() {
   const navigate = useNavigate();
 
   const dogId = async () => {
-    const response = await apiService.getDogId(id);
+    const response = await apiService.getDog(id);
+    console.log(response.data);
     setDog(response.data);
   };
 
   useEffect(() => {
     dogId();
-  }, []);
+  }, [id]);
+
+  const handleDelete = async () => {
+    try {
+      await apiService.deleteDog(id);
+      navigate('/dogs/views');
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const handleOnChange = e => {
     setDog(prev => {
@@ -36,7 +46,7 @@ function UpdateDog() {
   const handleSubmit = e => {
     e.preventDefault();
     apiService
-      .updateDog(dog._id, {
+      .updateDog(id, {
         name: dog.name,
         sex: dog.sex,
         race: dog.race,
@@ -55,7 +65,7 @@ function UpdateDog() {
     <>
       <form onSubmit={handleSubmit}>
         <label>Name</label>
-        <input name="name" type="text" value={dog.name} onChange={handleOnChange} placeholder="Name" />
+        <input name="name" type="text" value={dog.name} onChange={handleOnChange} />
         <label>Sex</label>
         <input name="sex" type="text" value={dog.sex} onChange={handleOnChange} placeholder="Sex" />
         <label>Size</label>
@@ -68,6 +78,7 @@ function UpdateDog() {
         <input name="image" type="text" value={dog.image} onChange={handleOnChange} placeholder="Image" />
         <button type="submit">Update</button>
       </form>
+      <button onClick={handleDelete}>Delete</button>
     </>
   );
 }

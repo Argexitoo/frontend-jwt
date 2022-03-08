@@ -45,12 +45,12 @@ class ApiService {
     return this.api.post('/dog/add', form);
   };
 
-  getDogId = id => {
+  getDog = id => {
     return this.api.get(`/dog/${id}`);
   };
 
-  UpdateDog = (id, body) => {
-    return this.api.post(`/dog/${id}`, body);
+  updateDog = (id, body) => {
+    return this.api.put(`/dog/${id}`, body);
   };
 
   deleteDog = id => {

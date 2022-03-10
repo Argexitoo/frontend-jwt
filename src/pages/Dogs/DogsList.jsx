@@ -20,17 +20,32 @@ function DogsList() {
   return (
     <>
       <h1>My Dogs</h1>
-      {dogs.map(dog => {
-        return (
-          <>
-            <Link to={`/dogs/${dog._id}`}>
-              {dog.name} <button>-Edit</button>
-            </Link>
-
-            <br />
-          </>
-        );
-      })}
+      <div className="flex flex-col  rounded-lg border shadow-md md:flex-row md:max-w-xl">
+        {dogs.map(dog => {
+          return (
+            <>
+              <img
+                src={dog.image}
+                alt=""
+                className="object-cover w-full h-50 rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
+              />
+              <strong>Name:</strong>
+              <p>{dog.name}</p>
+              <strong>Race:</strong>
+              <p>{dog.race}</p>
+              <strong>Age:</strong>
+              <p>{dog.age}</p>
+              <strong>Size:</strong>
+              <p>{dog.size}</p>
+              <br />
+              <Link to={`/dogs/${dog._id}`}>
+                <button>Edit</button>
+              </Link>
+              <br />
+            </>
+          );
+        })}
+      </div>
     </>
   );
 }

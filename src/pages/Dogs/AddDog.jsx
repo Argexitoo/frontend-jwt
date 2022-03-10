@@ -39,18 +39,62 @@ function AddDog() {
     <>
       <form onSubmit={handleSubmit}>
         <label>Name</label>
-        <input name="name" type="text" value={form.name} onChange={handleForm} placeholder="Name" />
+        <input
+          name="name"
+          type="text"
+          value={form.name}
+          onChange={handleForm}
+          placeholder="Name"
+          className="w-full h-10 px-3 mb-2 text-base text-gray-700 placeholder-gray-600 border rounded-lg focus:shadow-outline"
+        />
         <label>Sex</label>
-        <input name="sex" type="text" value={form.sex} onChange={handleForm} placeholder="Sex" />
+        <input
+          name="sex"
+          type="text"
+          value={form.sex}
+          onChange={handleForm}
+          placeholder="Sex"
+          className="w-full h-10 px-3 mb-2 text-base text-gray-700 placeholder-gray-600 border rounded-lg focus:shadow-outline"
+        />
         <label>Size</label>
-        <input name="size" type="text" value={form.size} onChange={handleForm} placeholder="Size" />
+        <input
+          name="size"
+          type="text"
+          value={form.size}
+          onChange={handleForm}
+          placeholder="Size"
+          className="w-full h-10 px-3 mb-2 text-base text-gray-700 placeholder-gray-600 border rounded-lg focus:shadow-outline"
+        />
         <label>Race</label>
-        <input name="race" type="text" value={form.race} onChange={handleForm} placeholder="Race" />
+        <input
+          name="race"
+          type="text"
+          value={form.race}
+          onChange={handleForm}
+          placeholder="Race"
+          className="w-full h-10 px-3 mb-2 text-base text-gray-700 placeholder-gray-600 border rounded-lg focus:shadow-outline"
+        />
         <label>Age</label>
-        <input name="age" type="text" value={form.age} onChange={handleForm} placeholder="Age" />
+        <input
+          name="age"
+          type="text"
+          value={form.age}
+          onChange={handleForm}
+          placeholder="Age"
+          className="w-full h-10 px-3 mb-2 text-base text-gray-700 placeholder-gray-600 border rounded-lg focus:shadow-outline"
+        />
         <label>Image</label>
-        <input name="image" type="text" value={form.image} onChange={handleForm} placeholder="Image" />
-        <button type="submit">Add</button>
+        <input
+          name="image"
+          type="text"
+          value={form.image}
+          onChange={handleForm}
+          placeholder="Image"
+          className="w-full h-10 px-3 mb-2 text-base text-gray-700 placeholder-gray-600 border rounded-lg focus:shadow-outline"
+        />
+        <button type="submit" className="border">
+          Add
+        </button>
       </form>
     </>
   );

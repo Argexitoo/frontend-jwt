@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-
 import apiService from '../../services/api.service';
 
 function Profile() {
@@ -20,11 +19,11 @@ function Profile() {
 
   return (
     <>
-      <strong>Name</strong>
+      <strong>Name:</strong>
       <p>{user.name}</p>
-      <strong>Location</strong>
+      <strong>Location:</strong>
       <p>{user.location}</p>
-      <strong>Age</strong>
+      <strong>Age:</strong>
       <p>{user.age}</p>
       <Link to={`/profile/${user._id}`}>
         <button>Edit</button>

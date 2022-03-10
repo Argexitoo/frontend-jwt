@@ -5,7 +5,7 @@ import IsPrivate from './components/IsPrivate';
 import Navbar from './components/Navbar';
 import { AuthProviderWrapper } from './context/auth.context';
 import Dogs from './pages/Dogs/Dogs';
-import Home from './pages/Profile/Profile';
+import Home from './pages/Home';
 import LoginPage from './pages/LoginPage';
 import Meetings from './pages/Meetings/Meetings';
 import SignupPage from './pages/SignupPage';

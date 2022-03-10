@@ -78,6 +78,7 @@ function UpdateDog() {
         <input name="image" type="text" value={dog.image} onChange={handleOnChange} />
         <button type="submit">Update</button>
       </form>
+
       <button onClick={handleDelete}>Delete</button>
     </>
   );

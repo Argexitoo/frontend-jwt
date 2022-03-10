@@ -4,19 +4,51 @@ import apiService from '../../services/api.service';
 
 function MeetingDetail() {
   const { id } = useParams();
-  const [meetingDetail, setMeetingDetail] = useState([]);
+  const [meetingDetail, setMeetingDetail] = useState({});
+  // const [usersJoined, setUsersJoined] = useState([]);
+  // const [usersJoin, setUsersJoin] = useState([]);
+
+  // ENCONTRAR ID MEETING
+
+  // useEffect(() => {
+  //   apiService
+  //     .getMeeting(id)
+  //     .then(response => {
+  //       console.log(response.data);
+  //       setMeetingDetail(response.data);
+  //     })
+  //     .catch(error => {
+  //       console.log(error);
+  //     });
+  // }, [id]);
+
+  // USUARIOS QUE SE HAN UNIDO AL MEETING.
+
+  const getMeeting = async () => {
+    try {
+      const response = await apiService.joinedMeeting(id);
+      console.log(response.data);
+      setMeetingDetail(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
-    apiService
-      .getMeeting(id)
-      .then(response => {
-        console.log(response.data);
-        setMeetingDetail(response.data);
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }, [id]);
+    getMeeting();
+  }, []);
+
+  // useEffect(() => {
+  //   apiService
+  //     .joinMeeting(id)
+  //     .then(response => {
+  //       console.log(response.data);
+  //       setUsersJoin(response.data);
+  //     })
+  //     .catch(error => {
+  //       console.log(error);
+  //     });
+  // }, [id]);
 
   return (
     <>
@@ -30,7 +62,11 @@ function MeetingDetail() {
       <strong>Description</strong>
       <p>{meetingDetail.description}</p>
       <strong>Users Joined</strong>
-      <p>{}</p>
+      {meetingDetail.usersJoined.length > 0 ? (
+        meetingDetail.usersJoined.map(elem => <p key={elem._id}>{elem.name}</p>)
+      ) : (
+        <p>No users joined yet</p>
+      )}
       <button className="border" type="submit">
         Join Meeting
       </button>

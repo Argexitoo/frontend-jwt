@@ -84,8 +84,12 @@ class ApiService {
     return this.api.delete(`/meetings/${id}`);
   };
 
+  joinedMeeting = id => {
+    return this.api.get(`/meetings/${id}/joined`);
+  };
+
   joinMeeting = id => {
-    return this.api.post(`meetings/${id}/join`);
+    return this.api.post(`/meetings/${id}/join`);
   };
 
   // PROFILE //////

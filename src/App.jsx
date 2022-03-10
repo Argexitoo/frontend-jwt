@@ -5,11 +5,11 @@ import IsPrivate from './components/IsPrivate';
 import Navbar from './components/Navbar';
 import { AuthProviderWrapper } from './context/auth.context';
 import Dogs from './pages/Dogs/Dogs';
-import Home from './pages/Profile';
+import Home from './pages/Profile/Profile';
 import LoginPage from './pages/LoginPage';
 import Meetings from './pages/Meetings/Meetings';
 import SignupPage from './pages/SignupPage';
-import Profile from './pages/Profile';
+import Profile from './pages/Profile/Profile';
 import DogsList from './pages/Dogs/DogsList';
 import AddDog from './pages/Dogs/AddDog';
 import UpdateDog from './pages/Dogs/UpdateDog';
@@ -18,6 +18,7 @@ import MeetingsList from './pages/Meetings/MeetingsList';
 import UpdateMeeting from './pages/Meetings/UpdateMeeting';
 import MeetingDetail from './pages/Meetings/MeetingDetail';
 import MyMeetings from './pages/Meetings/MyMeetings';
+import UpdateProfile from './pages/Profile/UpdateProfile';
 
 function App() {
   return (
@@ -30,6 +31,14 @@ function App() {
           element={
             <IsPrivate>
               <Profile />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/profile/:id"
+          element={
+            <IsPrivate>
+              <UpdateProfile />
             </IsPrivate>
           }
         />

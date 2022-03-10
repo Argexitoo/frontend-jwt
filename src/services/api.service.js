@@ -87,6 +87,12 @@ class ApiService {
   joinMeeting = id => {
     return this.api.post(`meetings/${id}/join`);
   };
+
+  // PROFILE //////
+
+  getProfile = () => {
+    return this.api.get(`/profile/user`);
+  };
 }
 
 // Create one instance (object) of the service

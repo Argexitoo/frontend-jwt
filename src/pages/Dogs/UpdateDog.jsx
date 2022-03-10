@@ -67,15 +67,15 @@ function UpdateDog() {
         <label>Name</label>
         <input name="name" type="text" value={dog.name} onChange={handleOnChange} />
         <label>Sex</label>
-        <input name="sex" type="text" value={dog.sex} onChange={handleOnChange} placeholder="Sex" />
+        <input name="sex" type="text" value={dog.sex} onChange={handleOnChange} />
         <label>Size</label>
-        <input name="size" type="text" value={dog.size} onChange={handleOnChange} placeholder="Size" />
+        <input name="size" type="text" value={dog.size} onChange={handleOnChange} />
         <label>Race</label>
-        <input name="race" type="text" value={dog.race} onChange={handleOnChange} placeholder="Race" />
+        <input name="race" type="text" value={dog.race} onChange={handleOnChange} />
         <label>Age</label>
-        <input name="age" type="text" value={dog.age} onChange={handleOnChange} placeholder="Age" />
+        <input name="age" type="text" value={dog.age} onChange={handleOnChange} />
         <label>Image</label>
-        <input name="image" type="text" value={dog.image} onChange={handleOnChange} placeholder="Image" />
+        <input name="image" type="text" value={dog.image} onChange={handleOnChange} />
         <button type="submit">Update</button>
       </form>
       <button onClick={handleDelete}>Delete</button>

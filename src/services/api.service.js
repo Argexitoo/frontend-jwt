@@ -37,6 +37,7 @@ class ApiService {
     // return axios.post("http://localhost:5005/auth/verify");
   };
 
+  // DOGS ///////
   getMyDogs = () => {
     return this.api.get('/dog');
   };
@@ -55,6 +56,36 @@ class ApiService {
 
   deleteDog = id => {
     return this.api.delete(`/dog/${id}`);
+  };
+
+  // MEETINGS ///////
+
+  addNewMeeting = form => {
+    return this.api.post(`/meetings/add`, form);
+  };
+
+  getMeetingsViews = () => {
+    return this.api.get('/meetings');
+  };
+
+  getMyMeetings = () => {
+    return this.api.get('/meetings/myMeetings');
+  };
+
+  getMeeting = id => {
+    return this.api.get(`/meetings/${id}/info`);
+  };
+
+  updateMeeting = (id, body) => {
+    return this.api.put(`/meetings/${id}`, body);
+  };
+
+  deleteMeeting = id => {
+    return this.api.delete(`/meetings/${id}`);
+  };
+
+  joinMeeting = id => {
+    return this.api.post(`meetings/${id}/join`);
   };
 }
 

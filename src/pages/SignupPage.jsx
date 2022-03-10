@@ -3,11 +3,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/auth.context';
 
 function SignupPage() {
-  const [email, setEmail] = useState('test10@hotmail.com');
-  const [password, setPassword] = useState('Albert93!');
-  const [name, setName] = useState('Albert');
-  const [location, setLocation] = useState('Vidreres');
-  const [age, setAge] = useState('18');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
+  const [location, setLocation] = useState('');
+  const [age, setAge] = useState('');
   const [errorMessage, setErrorMessage] = useState(undefined);
   const { signup } = useContext(AuthContext);
 

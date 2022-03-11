@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.card-profile {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding-top: 140px;
+  margin-top: 20%;
+}
+
+.card-dog {
+  background-color: rgb(238, 238, 238);
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.container-dog {
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  margin-top: 20px;
+  font-size: 15px;
+}

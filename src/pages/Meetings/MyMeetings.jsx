@@ -24,10 +24,14 @@ function MyMeetings() {
       {myMeetings.map(meet => {
         return (
           <>
-            <Link to={`/meetings/${meet._id}`}>
-              {meet.name} <button>-Edit</button>
-            </Link>
-            <br />
+            <div className="flex flex-col space-y-4 pt-4">
+              <Link
+                to={`/meetings/${meet._id}`}
+                className="text-white bg-sky-300  focus:ring-4  font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+              >
+                {meet.name} <button>-Edit</button>
+              </Link>
+            </div>
           </>
         );
       })}

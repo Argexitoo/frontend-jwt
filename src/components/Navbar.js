@@ -8,7 +8,7 @@ function Navbar() {
   const { isLoggedIn, logOutUser } = useContext(AuthContext);
 
   return (
-    <nav className="flex space-x-4 justify-end">
+    <nav className="flex space-x-4 justify-end pb-5 bg-sky-400">
       {isLoggedIn && (
         <>
           <Link to="/dogs">

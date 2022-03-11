@@ -65,21 +65,68 @@ function UpdateDog() {
     <>
       <form onSubmit={handleSubmit}>
         <label>Name</label>
-        <input name="name" type="text" value={dog.name} onChange={handleOnChange} />
+        <input
+          name="name"
+          type="text"
+          value={dog.name}
+          onChange={handleOnChange}
+          className="w-full h-10 px-3 mb-2 text-base text-gray-700 placeholder-gray-600 border rounded-lg focus:shadow-outline"
+        />
         <label>Sex</label>
-        <input name="sex" type="text" value={dog.sex} onChange={handleOnChange} />
+        <input
+          name="sex"
+          type="text"
+          value={dog.sex}
+          onChange={handleOnChange}
+          className="w-full h-10 px-3 mb-2 text-base text-gray-700 placeholder-gray-600 border rounded-lg focus:shadow-outline"
+        />
         <label>Size</label>
-        <input name="size" type="text" value={dog.size} onChange={handleOnChange} />
+        <input
+          name="size"
+          type="text"
+          value={dog.size}
+          onChange={handleOnChange}
+          className="w-full h-10 px-3 mb-2 text-base text-gray-700 placeholder-gray-600 border rounded-lg focus:shadow-outline"
+        />
         <label>Race</label>
-        <input name="race" type="text" value={dog.race} onChange={handleOnChange} />
+        <input
+          name="race"
+          type="text"
+          value={dog.race}
+          onChange={handleOnChange}
+          className="w-full h-10 px-3 mb-2 text-base text-gray-700 placeholder-gray-600 border rounded-lg focus:shadow-outline"
+        />
         <label>Age</label>
-        <input name="age" type="text" value={dog.age} onChange={handleOnChange} />
+        <input
+          name="age"
+          type="text"
+          value={dog.age}
+          onChange={handleOnChange}
+          className="w-full h-10 px-3 mb-2 text-base text-gray-700 placeholder-gray-600 border rounded-lg focus:shadow-outline"
+        />
         <label>Image</label>
-        <input name="image" type="text" value={dog.image} onChange={handleOnChange} />
-        <button type="submit">Update</button>
+        <input
+          name="image"
+          type="text"
+          value={dog.image}
+          onChange={handleOnChange}
+          className="w-full h-10 px-3 mb-2 text-base text-gray-700 placeholder-gray-600 border rounded-lg focus:shadow-outline"
+        />
+        <div className="flex space-x-4">
+          <button
+            type="submit"
+            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          >
+            Update
+          </button>
+          <button
+            onClick={handleDelete}
+            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          >
+            Delete
+          </button>
+        </div>
       </form>
-
-      <button onClick={handleDelete}>Delete</button>
     </>
   );
 }

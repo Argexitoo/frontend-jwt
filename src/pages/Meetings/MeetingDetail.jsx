@@ -62,11 +62,12 @@ function MeetingDetail() {
       <strong>Description</strong>
       <p>{meetingDetail.description}</p>
       <strong>Users Joined</strong>
-      {meetingDetail.usersJoined.length > 0 ? (
+      <p>2</p>
+      {/* {meetingDetail.usersJoined.length > 0 ? (
         meetingDetail.usersJoined.map(elem => <p key={elem._id}>{elem.name}</p>)
       ) : (
         <p>No users joined yet</p>
-      )}
+      )} */}
       <button className="border" type="submit">
         Join Meeting
       </button>

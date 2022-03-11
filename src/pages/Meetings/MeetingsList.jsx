@@ -19,15 +19,18 @@ function MeetingsList() {
   }, []);
   return (
     <>
-      <h1>All meetings</h1>
       {meetings.map(meeting => {
         return (
           <>
-            <Link to={`/meetings/${meeting._id}/info`}>
-              {meeting.name}
-              <button>-Info</button>
-            </Link>
-            <br />
+            <div className="flex flex-col space-y-4 pt-4">
+              <Link
+                to={`/meetings/${meeting._id}/info`}
+                className="text-white bg-sky-300  focus:ring-4  font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+              >
+                {meeting.name}
+                <button>-Info</button>
+              </Link>
+            </div>
           </>
         );
       })}

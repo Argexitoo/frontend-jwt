@@ -38,13 +38,41 @@ function AddMeeting() {
     <>
       <form onSubmit={handleSubmit}>
         <label>Name</label>
-        <input name="name" type="text" value={form.name} onChange={handleForm} placeholder="Name" />
+        <input
+          name="name"
+          type="text"
+          value={form.name}
+          onChange={handleForm}
+          placeholder="Name"
+          className="w-full h-10 px-3 mb-2 text-base text-gray-700 placeholder-gray-600 border rounded-lg focus:shadow-outline"
+        />
         <label>Location</label>
-        <input name="location" type="text" value={form.location} onChange={handleForm} placeholder="Location" />
+        <input
+          name="location"
+          type="text"
+          value={form.location}
+          onChange={handleForm}
+          placeholder="Location"
+          className="w-full h-10 px-3 mb-2 text-base text-gray-700 placeholder-gray-600 border rounded-lg focus:shadow-outline"
+        />
         <label>Date</label>
-        <input name="date" type="text" value={form.date} onChange={handleForm} placeholder="Date" />
+        <input
+          name="date"
+          type="text"
+          value={form.date}
+          onChange={handleForm}
+          placeholder="Date"
+          className="w-full h-10 px-3 mb-2 text-base text-gray-700 placeholder-gray-600 border rounded-lg focus:shadow-outline"
+        />
         <label>Hour</label>
-        <input name="hour" type="text" value={form.hour} onChange={handleForm} placeholder="Hour" />
+        <input
+          name="hour"
+          type="text"
+          value={form.hour}
+          onChange={handleForm}
+          placeholder="Hour"
+          className="w-full h-10 px-3 mb-2 text-base text-gray-700 placeholder-gray-600 border rounded-lg focus:shadow-outline"
+        />
         <label>Description</label>
         <input
           name="description"
@@ -52,8 +80,14 @@ function AddMeeting() {
           value={form.description}
           onChange={handleForm}
           placeholder="Description"
+          className="w-full h-10 px-3 mb-2 text-base text-gray-700 placeholder-gray-600 border rounded-lg focus:shadow-outline"
         />
-        <button type="submit">Add</button>
+        <button
+          type="submit"
+          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        >
+          Add
+        </button>
       </form>
     </>
   );

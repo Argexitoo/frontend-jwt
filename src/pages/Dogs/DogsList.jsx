@@ -20,23 +20,21 @@ function DogsList() {
   return (
     <>
       <h1>My Dogs</h1>
-      <div className="flex flex-col  rounded-lg border shadow-md md:flex-row md:max-w-xl">
+      <div className="card-dog">
         {dogs.map(dog => {
           return (
             <>
-              <img
-                src={dog.image}
-                alt=""
-                className="object-cover w-full h-50 rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
-              />
-              <strong>Name:</strong>
-              <p>{dog.name}</p>
-              <strong>Race:</strong>
-              <p>{dog.race}</p>
-              <strong>Age:</strong>
-              <p>{dog.age}</p>
-              <strong>Size:</strong>
-              <p>{dog.size}</p>
+              <img src={dog.image} alt="" width="350px" height="auto" />
+              <div className="container-dog">
+                <strong>Name:</strong>
+                <p>{dog.name}</p>
+                <strong>Race:</strong>
+                <p>{dog.race}</p>
+                <strong>Age:</strong>
+                <p>{dog.age}</p>
+                <strong>Size:</strong>
+                <p>{dog.size}</p>
+              </div>
               <br />
               <Link to={`/dogs/${dog._id}`}>
                 <button>Edit</button>

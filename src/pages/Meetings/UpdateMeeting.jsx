@@ -63,18 +63,60 @@ function UpdateMeeting() {
     <>
       <form onSubmit={handleSubmit}>
         <label>Name</label>
-        <input name="name" type="text" value={meeting.name} onChange={handleOnChange} />
+        <input
+          name="name"
+          type="text"
+          value={meeting.name}
+          onChange={handleOnChange}
+          className="w-full h-10 px-3 mb-2 text-base text-gray-700 placeholder-gray-600 border rounded-lg focus:shadow-outline"
+        />
         <label>Location</label>
-        <input name="location" type="text" value={meeting.location} onChange={handleOnChange} />
+        <input
+          name="location"
+          type="text"
+          value={meeting.location}
+          onChange={handleOnChange}
+          className="w-full h-10 px-3 mb-2 text-base text-gray-700 placeholder-gray-600 border rounded-lg focus:shadow-outline"
+        />
         <label>Date</label>
-        <input name="size" type="text" value={meeting.date} onChange={handleOnChange} />
+        <input
+          name="size"
+          type="text"
+          value={meeting.date}
+          onChange={handleOnChange}
+          className="w-full h-10 px-3 mb-2 text-base text-gray-700 placeholder-gray-600 border rounded-lg focus:shadow-outline"
+        />
         <label>Hour</label>
-        <input name="hour" type="text" value={meeting.hour} onChange={handleOnChange} />
+        <input
+          name="hour"
+          type="text"
+          value={meeting.hour}
+          onChange={handleOnChange}
+          className="w-full h-10 px-3 mb-2 text-base text-gray-700 placeholder-gray-600 border rounded-lg focus:shadow-outline"
+        />
         <label>Description</label>
-        <input name="description" type="text" value={meeting.description} onChange={handleOnChange} />
-        <button type="submit">Update</button>
+        <input
+          name="description"
+          type="text"
+          value={meeting.description}
+          onChange={handleOnChange}
+          className="w-full h-10 px-3 mb-2 text-base text-gray-700 placeholder-gray-600 border rounded-lg focus:shadow-outline"
+        />
+        <div className="flex space-x-4">
+          <button
+            type="submit"
+            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          >
+            Update
+          </button>
+          <button
+            onClick={handleDelete}
+            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          >
+            Delete
+          </button>
+        </div>
       </form>
-      <button onClick={handleDelete}>Delete</button>
     </>
   );
 }

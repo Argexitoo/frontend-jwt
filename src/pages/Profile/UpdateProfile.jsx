@@ -9,6 +9,7 @@ function UpdateProfile() {
     name: '',
     location: '',
     age: '',
+    image: '',
   });
 
   const userId = async () => {
@@ -37,6 +38,7 @@ function UpdateProfile() {
         name: profile.name,
         location: profile.location,
         age: profile.age,
+        image: profile.image,
       })
       .then(response => {
         console.log(response);
@@ -71,6 +73,14 @@ function UpdateProfile() {
           value={profile.age}
           onChange={handleOnChange}
           className="w-full h-10 px-3 mb-2 text-base text-gray-700 placeholder-gray-600 border rounded-lg focus:shadow-outline"
+        />
+        <label>Image</label>
+        <input
+          name="image"
+          type="text"
+          value={profile.image}
+          onChange={handleOnChange}
+          className="w-80 h-10 px-3 mb-2 text-base text-gray-700 placeholder-gray-600 border rounded-lg focus:shadow-outline"
         />
         <button
           type="submit"

@@ -6,34 +6,68 @@ function Navbar() {
   // Subscribe to the AuthContext to gain access to
   // the values from AuthContext.Provider `value` prop
   const { isLoggedIn, logOutUser } = useContext(AuthContext);
-
   return (
-    <nav className="flex space-x-4 justify-end pb-5 bg-sky-400">
-      {isLoggedIn && (
-        <>
-          <Link to="/dogs">
-            <button>Dogs</button>
-          </Link>
-          <Link to="/meetings">
-            <button>Meetings</button>
-          </Link>
-          <Link to="/profile">
-            <button>Profile</button>
-          </Link>
-          <button onClick={logOutUser}>Logout</button>
-        </>
-      )}
-
+    <nav>
+      <div className="bg-slate-100">
+        {isLoggedIn && (
+          <>
+            <ul className="space-x-20 ml-6">
+              <li>
+                <a>
+                  <img src="../dog-icon.png" alt="" width="50px" />
+                </a>
+                <ul>
+                  <li>
+                    <Link to="/dogs/views">My Dogs</Link>
+                  </li>
+                  <li>
+                    <Link to="/dogs/add">New Dog</Link>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a>
+                  <img src="../meeting-icon.png" alt="" width="50px" />
+                </a>
+                <ul>
+                  <li>
+                    <Link to="/meetings/views">Meetings</Link>
+                  </li>
+                  <li>
+                    <Link to="/meetings/myMeetings">My Meetings</Link>
+                  </li>
+                  <li>
+                    <Link to="/meetings/add">New Meeting</Link>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <img src="../user-icon.png" alt="" width="52px" className="pb-2" />
+                <ul>
+                  <li>
+                    <Link to="/profile">Profile</Link>
+                  </li>
+                  <li>
+                    <a onClick={logOutUser}>Logout</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </>
+        )}
+      </div>
       {!isLoggedIn && (
         <>
-          <Link to="/signup">
-            {' '}
-            <button>Sign Up</button>{' '}
-          </Link>
-          <Link to="/login">
-            {' '}
-            <button>Login</button>{' '}
-          </Link>
+          <div className="flex space-x-4 justify-end pb-5 bg-slate-100">
+            <Link to="/signup">
+              {' '}
+              <button>Sign Up</button>{' '}
+            </Link>
+            <Link to="/login">
+              {' '}
+              <button>Login</button>{' '}
+            </Link>
+          </div>
         </>
       )}
     </nav>

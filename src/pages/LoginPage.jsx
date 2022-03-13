@@ -21,7 +21,7 @@ function LoginPage() {
 
     login(requestBody)
       .then(() => {
-        navigate('/');
+        navigate('/profile');
       })
       .catch(error => {
         const errorDescription = error.response.data.message;

@@ -19,7 +19,6 @@ function DogsList() {
 
   return (
     <>
-      <h1>My Dogs</h1>
       <div className="card-dog">
         {dogs.map(dog => {
           return (
@@ -28,6 +27,8 @@ function DogsList() {
               <div className="container-dog">
                 <strong>Name:</strong>
                 <p>{dog.name}</p>
+                <strong>Sex:</strong>
+                <p>{dog.sex}</p>
                 <strong>Race:</strong>
                 <p>{dog.race}</p>
                 <strong>Age:</strong>

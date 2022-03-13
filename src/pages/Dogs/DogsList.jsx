@@ -23,7 +23,15 @@ function DogsList() {
         {dogs.map(dog => {
           return (
             <>
-              <img src={dog.image} alt="" width="350px" height="auto" />
+              {dog.image === '' ? (
+                <img
+                  key={dog.image}
+                  src="https://cdn.pixabay.com/photo/2016/02/19/15/46/labrador-retriever-1210559__340.jpg"
+                  width="350px"
+                />
+              ) : (
+                <img src={dog.image} alt="" width="350px" height="auto" />
+              )}
               <div className="container-dog">
                 <strong>Name:</strong>
                 <p>{dog.name}</p>

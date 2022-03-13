@@ -49,14 +49,18 @@ function UpdateProfile() {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <div className="grid place-items-center mt-8">
+        <img src="../dog-event.png" alt="" width="130" />
+        <h1 className="mt-4 mb-4">Update your profile!</h1>
+      </div>
+      <form onSubmit={handleSubmit} className="grid place-items-center">
         <label>Name</label>
         <input
           name="name"
           type="text"
           value={profile.name}
           onChange={handleOnChange}
-          className="w-full h-10 px-3 mb-2 text-base text-gray-700 placeholder-gray-600 border rounded-lg focus:shadow-outline"
+          className="w-80 h-10 px-3 mb-2 text-base text-gray-700 placeholder-gray-600 border rounded-lg focus:shadow-outline"
         />
         <label>Location</label>
         <input
@@ -64,7 +68,7 @@ function UpdateProfile() {
           type="text"
           value={profile.location}
           onChange={handleOnChange}
-          className="w-full h-10 px-3 mb-2 text-base text-gray-700 placeholder-gray-600 border rounded-lg focus:shadow-outline"
+          className="w-80 h-10 px-3 mb-2 text-base text-gray-700 placeholder-gray-600 border rounded-lg focus:shadow-outline"
         />
         <label>Age</label>
         <input
@@ -72,7 +76,7 @@ function UpdateProfile() {
           type="text"
           value={profile.age}
           onChange={handleOnChange}
-          className="w-full h-10 px-3 mb-2 text-base text-gray-700 placeholder-gray-600 border rounded-lg focus:shadow-outline"
+          className="w-80 h-10 px-3 mb-2 text-base text-gray-700 placeholder-gray-600 border rounded-lg focus:shadow-outline"
         />
         <label>Image</label>
         <input

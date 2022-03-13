@@ -31,7 +31,7 @@ function Profile() {
         </Link>
       </div>
       <div className="grid place-items-start mt-8 ml-4">
-        {user.image === '' ? (
+        {user.image === undefined ? (
           <img
             key={user.image}
             src="https://bootdey.com/img/Content/avatar/avatar7.png"

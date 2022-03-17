@@ -20,6 +20,7 @@ import MeetingDetail from './pages/Meetings/MeetingDetail';
 import MyMeetings from './pages/Meetings/MyMeetings';
 import UpdateProfile from './pages/Profile/UpdateProfile';
 import Users from './pages/Profile/Users';
+import UserProfile from './pages/Profile/UserProfile';
 
 function App() {
   return (
@@ -51,7 +52,14 @@ function App() {
             </IsPrivate>
           }
         />
-
+        <Route
+          path="/profile/:id/info"
+          element={
+            <IsPrivate>
+              <UserProfile />
+            </IsPrivate>
+          }
+        />
         <Route
           path="/dogs"
           element={

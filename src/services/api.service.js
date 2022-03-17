@@ -111,7 +111,7 @@ class ApiService {
   };
 
   getUserProfile = id => {
-    return this.api.get(`profile/users/${id}/info`);
+    return this.api.get(`profile/${id}/info`);
   };
 }
 

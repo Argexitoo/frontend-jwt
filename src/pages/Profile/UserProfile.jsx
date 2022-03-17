@@ -1,31 +1,30 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-
+import { useParams } from 'react-router-dom';
 import apiService from '../../services/api.service';
 
-function Users() {
-  const [users, setUsers] = useState([{}]);
+function UserProfile() {
+  const [user, setUser] = useState([]);
+  const { id } = useParams();
 
   useEffect(() => {
     apiService
-      .getAllUsers()
+      .getUserProfile(id)
       .then(response => {
         console.log(response.data);
-        setUsers(response.data);
+        setUser(response.data);
       })
       .catch(error => {
         console.log(error);
       });
-  }, []);
+  }, [id]);
 
   return (
     <>
-      {users.map(user => {
+      {user.map(user => {
         return (
           <>
-            <li>
-              <Link to={`/profile/${user._id}/info`}>{user.name}</Link>
-            </li>
+            <p>{user.name}</p>
+            <p>{user.age}</p>
           </>
         );
       })}
@@ -33,4 +32,4 @@ function Users() {
   );
 }
 
-export default Users;
+export default UserProfile;

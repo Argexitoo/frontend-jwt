@@ -48,6 +48,9 @@ function Navbar() {
                     <Link to="/profile">Profile</Link>
                   </li>
                   <li>
+                    <Link to="/profile/users">Users</Link>
+                  </li>
+                  <li>
                     <a onClick={logOutUser}>Logout</a>
                   </li>
                 </ul>

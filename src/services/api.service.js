@@ -99,7 +99,7 @@ class ApiService {
   // PROFILE //////
 
   getProfile = () => {
-    return this.api.get(`/profile`);
+    return this.api.get(`/profile/user`);
   };
 
   updateProfile = (id, body) => {

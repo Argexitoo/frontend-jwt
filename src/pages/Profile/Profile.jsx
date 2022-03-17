@@ -56,7 +56,6 @@ function Profile() {
           </p>
         </div>
       </div>
-      <Link to={`/profile/users`}>Users</Link>
     </>
   );
 }

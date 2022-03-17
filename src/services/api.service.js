@@ -105,10 +105,6 @@ class ApiService {
   updateProfile = (id, body) => {
     return this.api.post(`/profile/${id}`, body);
   };
-
-  getAllUsers = () => {
-    return this.api.get(`profile/users`);
-  };
 }
 
 // Create one instance (object) of the service

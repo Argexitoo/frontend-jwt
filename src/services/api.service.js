@@ -99,7 +99,7 @@ class ApiService {
   // PROFILE //////
 
   getProfile = () => {
-    return this.api.get(`/profile/user`);
+    return this.api.get(`/profile`);
   };
 
   updateProfile = (id, body) => {
@@ -108,6 +108,10 @@ class ApiService {
 
   getAllUsers = () => {
     return this.api.get(`profile/users`);
+  };
+
+  getUserProfile = id => {
+    return this.api.get(`profile/users/${id}/info`);
   };
 }
 

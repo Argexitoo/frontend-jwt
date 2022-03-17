@@ -4,6 +4,7 @@ import apiService from '../../services/api.service';
 
 function MeetingsList() {
   const [meetings, setMeetings] = useState([]);
+  const [input, setInput] = useState('');
 
   useEffect(() => {
     apiService
@@ -16,8 +17,37 @@ function MeetingsList() {
         console.log(error);
       });
   }, []);
+
+  const handleSearch = e => {
+    e.persist();
+    setInput(prev => {
+      return {
+        ...prev,
+        [e.target.location]: e.target.value,
+      };
+    });
+    handleOnFilter(e.target.value);
+  };
+
+  const handleOnFilter = input => {
+    console.log('value', input);
+    const filteredMeetings = meetings.filter(meeting => meeting.location.toLowerCase().includes(input.toLowerCase()));
+    setMeetings(filteredMeetings);
+    if (input == '') {
+      setMeetings(meetings);
+    }
+  };
+
   return (
     <>
+      <input
+        type="search"
+        name="name"
+        placeholder="Search..."
+        onChange={handleSearch}
+        defaultValue={input}
+        key={meetings.location}
+      />
       {meetings.map(meeting => {
         return (
           <>
@@ -29,7 +59,7 @@ function MeetingsList() {
                   {meeting.location}
                 </p>
                 <p>
-                  <strong>Date: </strong> {meeting.date}
+                  <strong>Date: </strong> {meeting.date.slice(0, 10)}
                 </p>
                 <p>
                   <strong>Hour: </strong>

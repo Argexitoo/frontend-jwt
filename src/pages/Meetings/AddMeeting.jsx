@@ -62,7 +62,7 @@ function AddMeeting() {
 
         <input
           name="date"
-          type="text"
+          type="date"
           value={form.date}
           onChange={handleForm}
           placeholder="Date"

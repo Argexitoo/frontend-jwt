@@ -92,6 +92,10 @@ class ApiService {
     return this.api.post(`/meetings/${id}/join`);
   };
 
+  unJoinMeeting = id => {
+    return this.api.post(`meetings/${id}/unjoin`);
+  };
+
   // PROFILE //////
 
   getProfile = () => {
@@ -100,6 +104,10 @@ class ApiService {
 
   updateProfile = (id, body) => {
     return this.api.post(`/profile/${id}`, body);
+  };
+
+  getAllUsers = () => {
+    return this.api.get(`profile/users`);
   };
 }
 

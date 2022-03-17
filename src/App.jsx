@@ -19,6 +19,7 @@ import UpdateMeeting from './pages/Meetings/UpdateMeeting';
 import MeetingDetail from './pages/Meetings/MeetingDetail';
 import MyMeetings from './pages/Meetings/MyMeetings';
 import UpdateProfile from './pages/Profile/UpdateProfile';
+import Users from './pages/Profile/Users';
 
 function App() {
   return (
@@ -39,6 +40,14 @@ function App() {
           element={
             <IsPrivate>
               <UpdateProfile />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/profile/users"
+          element={
+            <IsPrivate>
+              <Users />
             </IsPrivate>
           }
         />

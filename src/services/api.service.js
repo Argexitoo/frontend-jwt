@@ -58,6 +58,10 @@ class ApiService {
     return this.api.delete(`/dog/${id}`);
   };
 
+  getDogsProfile = id => {
+    return this.api.get(`dog/users/${id}`);
+  };
+
   // MEETINGS ///////
 
   addNewMeeting = form => {

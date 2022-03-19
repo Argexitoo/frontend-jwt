@@ -23,9 +23,9 @@ function Users() {
       {users.map(user => {
         return (
           <>
-            <li>
+            <div className="users" key={user._id}>
               <Link to={`/profile/${user._id}/info`}>{user.name}</Link>
-            </li>
+            </div>
           </>
         );
       })}

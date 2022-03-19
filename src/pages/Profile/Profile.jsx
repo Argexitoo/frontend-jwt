@@ -49,11 +49,7 @@ function Profile() {
           </h4>
           <p className="mt-1">{user.location}</p>
           <h4 className="mt-1">About me...</h4>
-          <p className="mt-1 border rounded-lg">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus, molestiae! Itaque pariatur ad maxime
-            beatae commodi ipsa tempore quisquam excepturi! Assumenda delectus reiciendis ex aliquam, itaque et ipsa.
-            Eveniet, qui!
-          </p>
+          <p className="mt-1 border rounded-lg">{user.description}</p>
         </div>
       </div>
     </>

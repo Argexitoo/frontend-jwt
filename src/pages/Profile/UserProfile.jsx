@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import apiService from '../../services/api.service';
 
 function UserProfile() {
@@ -20,6 +20,9 @@ function UserProfile() {
 
   return (
     <>
+      <Link to={`/dogs/users/${id}`} className="grid place-items-end mr-4 mt-4">
+        Dogs
+      </Link>
       <div className="grid place-items-end mr-4 mt-4"></div>
       <div className="grid place-items-start mt-8 ml-4">
         {user.image === undefined || user.image === '' ? (
@@ -40,11 +43,7 @@ function UserProfile() {
           </h4>
           <p className="mt-1">{user.location}</p>
           <h4 className="mt-1">About me...</h4>
-          <p className="mt-1 border rounded-lg">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus, molestiae! Itaque pariatur ad maxime
-            beatae commodi ipsa tempore quisquam excepturi! Assumenda delectus reiciendis ex aliquam, itaque et ipsa.
-            Eveniet, qui!
-          </p>
+          <p className="mt-1 border rounded-lg">{user.description}</p>
         </div>
       </div>
     </>

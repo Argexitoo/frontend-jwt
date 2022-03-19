@@ -8,6 +8,7 @@ function SignupPage() {
   const [name, setName] = useState('');
   const [location, setLocation] = useState('');
   const [age, setAge] = useState('');
+  const [nickName, setNickName] = useState('');
   const [errorMessage, setErrorMessage] = useState(undefined);
   const { signup } = useContext(AuthContext);
 
@@ -18,11 +19,12 @@ function SignupPage() {
   const handleName = e => setName(e.target.value);
   const handleLocation = e => setLocation(e.target.value);
   const handleAge = e => setAge(e.target.value);
+  const handleNickName = e => setNickName(e.target.value);
 
   const handleSignupSubmit = e => {
     e.preventDefault();
     // Create an object representing the request body
-    const requestBody = { email, password, name, location, age };
+    const requestBody = { email, password, name, location, age, nickName };
 
     // Make an axios request to the API
     // If POST request is successful redirect to login page
@@ -93,6 +95,17 @@ function SignupPage() {
             value={age}
             onChange={handleAge}
             placeholder="Age"
+            className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+          />
+        </div>
+        <div className="mb-6">
+          <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Nickname</label>
+          <input
+            type="text"
+            name="nickName"
+            value={nickName}
+            onChange={handleNickName}
+            placeholder="NickName"
             className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
           />
         </div>

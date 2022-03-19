@@ -4,10 +4,8 @@ import IsAnon from './components/IsAnon';
 import IsPrivate from './components/IsPrivate';
 import Navbar from './components/Navbar';
 import { AuthProviderWrapper } from './context/auth.context';
-import Dogs from './pages/Dogs/Dogs';
 import Home from './pages/Home';
 import LoginPage from './pages/LoginPage';
-import Meetings from './pages/Meetings/Meetings';
 import SignupPage from './pages/SignupPage';
 import Profile from './pages/Profile/Profile';
 import DogsList from './pages/Dogs/DogsList';
@@ -21,6 +19,7 @@ import MyMeetings from './pages/Meetings/MyMeetings';
 import UpdateProfile from './pages/Profile/UpdateProfile';
 import Users from './pages/Profile/Users';
 import UserProfile from './pages/Profile/UserProfile';
+import DogsUsers from './pages/Dogs/DogsUsers';
 
 function App() {
   return (
@@ -61,18 +60,18 @@ function App() {
           }
         />
         <Route
-          path="/dogs"
-          element={
-            <IsPrivate>
-              <Dogs />
-            </IsPrivate>
-          }
-        />
-        <Route
           path="/dogs/views"
           element={
             <IsPrivate>
               <DogsList />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/dogs/users/:id"
+          element={
+            <IsPrivate>
+              <DogsUsers />
             </IsPrivate>
           }
         />
@@ -89,14 +88,6 @@ function App() {
           element={
             <IsPrivate>
               <UpdateDog />
-            </IsPrivate>
-          }
-        />
-        <Route
-          path="/meetings"
-          element={
-            <IsPrivate>
-              <Meetings />
             </IsPrivate>
           }
         />

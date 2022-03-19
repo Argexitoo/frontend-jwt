@@ -20,12 +20,7 @@ function MeetingsList() {
 
   const handleSearch = e => {
     e.persist();
-    setInput(prev => {
-      return {
-        ...prev,
-        [e.target.location]: e.target.value,
-      };
-    });
+    setInput(e.target.location);
     handleOnFilter(e.target.value);
   };
 
@@ -33,7 +28,7 @@ function MeetingsList() {
     console.log('value', input);
     const filteredMeetings = meetings.filter(meeting => meeting.location.toLowerCase().includes(input.toLowerCase()));
     setMeetings(filteredMeetings);
-    if (input == '') {
+    if (input === '') {
       setMeetings(meetings);
     }
   };

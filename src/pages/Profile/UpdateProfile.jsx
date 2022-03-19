@@ -10,6 +10,7 @@ function UpdateProfile() {
     location: '',
     age: '',
     image: '',
+    description: '',
   });
 
   const userId = async () => {
@@ -39,6 +40,7 @@ function UpdateProfile() {
         location: profile.location,
         age: profile.age,
         image: profile.image,
+        description: profile.description,
       })
       .then(response => {
         console.log(response);
@@ -75,6 +77,14 @@ function UpdateProfile() {
           name="age"
           type="text"
           value={profile.age}
+          onChange={handleOnChange}
+          className="w-80 h-10 px-3 mb-2 text-base text-gray-700 placeholder-gray-600 border rounded-lg focus:shadow-outline"
+        />
+        <label>Description</label>
+        <input
+          name="description"
+          type="text"
+          value={profile.description}
           onChange={handleOnChange}
           className="w-80 h-10 px-3 mb-2 text-base text-gray-700 placeholder-gray-600 border rounded-lg focus:shadow-outline"
         />

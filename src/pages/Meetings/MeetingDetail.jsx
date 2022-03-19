@@ -5,34 +5,55 @@ import { AuthContext } from '../../context/auth.context';
 
 function MeetingDetail() {
   const { id } = useParams();
-  const [meetingDetail, setMeetingDetail] = useState({});
+  const [meetingDetail, setMeetingDetail] = useState({
+    date: Date.now().toString(),
+  });
   const [isJoined, setJoined] = useState(false);
-  const { isLoggedIn } = useContext(AuthContext);
+  const { isLoggedIn, user, isLoading } = useContext(AuthContext);
+  const [currentUser, setCurrentUser] = useState({});
+  const [userData, setUserData] = useState(null);
 
   // USUARIOS QUE SE HAN UNIDO AL MEETING.
+
+  useEffect(() => {
+    if (!isLoading && user) {
+      setUserData(user);
+    }
+  }, [isLoading, userData]);
+  console.log('userData', userData);
 
   const getMeeting = async () => {
     try {
       const response = await apiService.joinedMeeting(id);
       console.log(response.data);
-      if (response.data.usersJoined.map(user => user.includes(user._id && isLoggedIn)));
-      console.log('test', isLoggedIn);
-      // Si l'array de usersJoined existeix _id === user loginat (context)
-      setJoined(true);
+      const amIJoined = response.data.usersJoined.filter(item => item._id == currentUser._id);
+      if (amIJoined.length > 0 && isLoggedIn) {
+        setJoined(true);
+      }
+      console.log('test', user);
+      console.log('filter', amIJoined);
       setMeetingDetail(response.data);
     } catch (error) {
       console.log(error);
     }
   };
 
+  const checkUser = () => {
+    if (!isLoading && user) {
+      setCurrentUser(user);
+    }
+  };
+
   useEffect(() => {
     getMeeting();
+    checkUser();
   }, [id]);
 
   const getJoin = async () => {
     try {
       const response = await apiService.joinMeeting(id);
       setMeetingDetail(response.data.joined);
+      setJoined(true);
     } catch (error) {
       console.log(error);
     }
@@ -71,7 +92,7 @@ function MeetingDetail() {
             <strong>Location:</strong>
             <p>{meetingDetail.location}</p>
             <strong>Date</strong>
-            <p>{meetingDetail.date.slice(0, 10)}</p>
+            <p>{meetingDetail.date.toString().slice(0, 10)}</p>
             <strong>Hour</strong>
             <p>{meetingDetail.hour}</p>
             <strong>Description</strong>

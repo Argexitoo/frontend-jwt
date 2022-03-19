@@ -16,7 +16,7 @@ function Navbar() {
                 <a>
                   <img src="../dog-icon.png" alt="" width="50px" />
                 </a>
-                <ul>
+                <ul className="rounded-lg border border-grey-600">
                   <li>
                     <Link to="/dogs/views">My Dogs</Link>
                   </li>
@@ -29,7 +29,7 @@ function Navbar() {
                 <a>
                   <img src="../meeting-icon.png" alt="" width="50px" />
                 </a>
-                <ul>
+                <ul className="rounded-lg border border-grey-600">
                   <li>
                     <Link to="/meetings/views">Meetings</Link>
                   </li>
@@ -43,7 +43,7 @@ function Navbar() {
               </li>
               <li>
                 <img src="../user-icon.png" alt="" width="52px" className="pb-2" />
-                <ul>
+                <ul className="rounded-lg border border-grey-600">
                   <li>
                     <Link to="/profile">Profile</Link>
                   </li>

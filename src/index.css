@@ -5,20 +5,40 @@
 
 /* DOG */
 
+body {
+  background-color: #276e90;
+  color: white;
+  font-family: Verdana, Geneva, sans-serif;
+}
+
+.nav-bar {
+  /* background-color: #cecfc9; */
+  background-color: rgba(26, 22, 22, 0.719);
+}
+
+.bg-button {
+  background-color: #0a3143;
+}
+
 .card-dog {
-  background-color: rgb(238, 238, 238);
+  border: 2px solid black;
   padding: 10px;
   margin: 10px;
   border-radius: 10px;
-  text-align: center;
+  display: flex;
 }
 
 .container-dog {
   display: flex;
-  justify-content: space-around;
-  align-content: center;
-  margin-top: 20px;
+  flex-direction: column;
+  text-align: start;
   font-size: 13px;
+}
+
+.img-dog {
+  width: 200px;
+  border: 2px solid #efefef;
+  display: inline-block;
 }
 
 /* MEETING */
@@ -36,27 +56,16 @@
   margin-bottom: 10px;
 }
 
-.card-my-meeting {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  transition: 0.3s;
-  border-radius: 5px;
-  height: 250px;
-  background-color: rgb(216, 201, 201);
-
-  background-repeat: no-repeat;
-  background-size: cover;
-  color: black;
-  font-size: 16px;
-  margin-bottom: 10px;
-}
-
 .btn-meeting {
   background-color: #ad8b73;
 }
 
 .card-detail {
-  border: 2px solid black;
   height: max-content;
+}
+
+.users-joined {
+  display: inline-block;
 }
 
 /* NAV */
@@ -105,13 +114,19 @@ nav ul li:hover ul {
 /* USERS PROFILE */
 
 .users {
-  display: flex;
-  flex-direction: column;
-  border: 2px solid black;
+  border: 2px solid white;
   border-radius: 10%;
+  height: 90px;
+
   width: 60%;
-  height: 80px;
 }
 
-.users-contain {
+.users-img {
+  width: 32%;
+  float: right;
+}
+
+.img-login {
+  display: block;
+  margin: auto;
 }

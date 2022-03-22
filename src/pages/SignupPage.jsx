@@ -3,12 +3,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/auth.context';
 
 function SignupPage() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [name, setName] = useState('');
-  const [location, setLocation] = useState('');
-  const [age, setAge] = useState('');
-  const [nickName, setNickName] = useState('');
+  const [email, setEmail] = useState('argexito@hotmail.com');
+  const [password, setPassword] = useState('Albert93!');
+  const [name, setName] = useState('Albert');
+  const [location, setLocation] = useState('Vidreres');
+  const [age, setAge] = useState('29');
+  const [nickName, setNickName] = useState('Argexitoo');
   const [errorMessage, setErrorMessage] = useState(undefined);
   const { signup } = useContext(AuthContext);
 
@@ -120,8 +120,13 @@ function SignupPage() {
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      <p>Already have account?</p>
-      <Link to={'/login'}> Login</Link>
+      <p>
+        Already have account?{' '}
+        <Link to={'/login'} className="color-blue">
+          {' '}
+          Login
+        </Link>
+      </p>
     </div>
   );
 }

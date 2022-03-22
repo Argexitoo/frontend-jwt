@@ -5,7 +5,7 @@ import apiService from '../../services/api.service';
 
 function MyMeetings() {
   const [myMeetings, setMyMeetings] = useState([]);
-  const [meetingsJoined, setMeetingsJoined] = useState([]);
+  const [joinedMeetings, setJoinedMeetings] = useState([]);
 
   useEffect(() => {
     apiService
@@ -24,7 +24,7 @@ function MyMeetings() {
       .joinedMeeting()
       .then(response => {
         console.log(response.data);
-        setMeetingsJoined(response.data);
+        setJoinedMeetings(response.data);
       })
       .catch(error => {
         console.log(error);
@@ -33,11 +33,11 @@ function MyMeetings() {
 
   return (
     <>
-      <h1 className="text-center pt-2 pb-2">My Meetings</h1>
+      <h1 className="text-center pt-2 pb-2">Meetings Created</h1>
       {myMeetings.map(meet => {
         return (
-          <>
-            <div className="card-my-meeting">
+          <div key={meet._id}>
+            <div className="card-meeting">
               <div className="flex flex-col space-y-4 pl-4 pt-2">
                 <strong>{meet.name}</strong>
                 <p>
@@ -52,12 +52,12 @@ function MyMeetings() {
                   {meet.hour}
                 </p>
                 <Link to={`/meetings/${meet._id}/info`}>
-                  <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-2 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                  <button className="bg-button mt-2 w-30 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
                     More Details
                   </button>
                 </Link>
               </div>
-              <div className="grid place-items-end mr-4 mt-4 ">
+              <div className="grid place-items-end mr-4 mt-2 ">
                 <Link to={`/meetings/${meet._id}`}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -76,23 +76,35 @@ function MyMeetings() {
                 </Link>
               </div>
             </div>
-          </>
+          </div>
         );
       })}
-
-      <h1>Meetings Joined</h1>
-      {meetingsJoined.map(meetJoined => {
+      <h1 className="text-center pt-2 pb-2">Meetings Join</h1>
+      {joinedMeetings.map(joined => {
         return (
-          <>
-            <div className="flex flex-col space-y-4 pt-4">
-              <Link
-                to={`/meetings/${meetJoined._id}/info`}
-                className="text-white bg-sky-300  focus:ring-4  font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-              >
-                {meetJoined.name}
-              </Link>
+          <div key={joined._id}>
+            <div className="card-meeting">
+              <div className="flex flex-col space-y-4 pl-4 pt-2">
+                <strong>{joined.name}</strong>
+                <p>
+                  <strong>Location: </strong>
+                  {joined.location}
+                </p>
+                <p>
+                  <strong>Date: </strong> {joined.date.slice(0, 10)}
+                </p>
+                <p>
+                  <strong>Hour: </strong>
+                  {joined.hour}
+                </p>
+                <Link to={`/meetings/${joined._id}/info`}>
+                  <button className="bg-button mt-2 w-30 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                    More Details
+                  </button>
+                </Link>
+              </div>
             </div>
-          </>
+          </div>
         );
       })}
     </>

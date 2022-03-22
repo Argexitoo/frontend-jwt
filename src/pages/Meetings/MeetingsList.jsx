@@ -42,10 +42,11 @@ function MeetingsList() {
         onChange={handleSearch}
         defaultValue={input}
         key={meetings.location}
+        className="w-full text-black"
       />
       {meetings.map(meeting => {
         return (
-          <>
+          <div key={meeting._id}>
             <div className="card-meeting">
               <div className="flex flex-col space-y-4 pl-4 pt-2">
                 <strong>{meeting.name}</strong>
@@ -61,13 +62,13 @@ function MeetingsList() {
                   {meeting.hour}
                 </p>
                 <Link to={`/meetings/${meeting._id}/info`}>
-                  <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-2 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                  <button className="bg-button mt-2 w-30 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
                     More Details
                   </button>
                 </Link>
               </div>
             </div>
-          </>
+          </div>
         );
       })}
     </>

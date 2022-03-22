@@ -10,50 +10,36 @@ function MeetingDetail() {
   });
   const [isJoined, setJoined] = useState(false);
   const { isLoggedIn, user, isLoading } = useContext(AuthContext);
-  const [currentUser, setCurrentUser] = useState({});
   const [userData, setUserData] = useState(null);
 
   // USUARIOS QUE SE HAN UNIDO AL MEETING.
 
   useEffect(() => {
-    if (!isLoading && user) {
+    if (!isLoading && isLoggedIn) {
       setUserData(user);
+      getMeeting();
     }
   }, [isLoading, userData]);
-  console.log('userData', userData);
 
   const getMeeting = async () => {
     try {
-      const response = await apiService.joinedMeeting(id);
-      console.log(response.data);
-      const amIJoined = response.data.usersJoined.filter(item => item._id == currentUser._id);
-      if (amIJoined.length > 0 && isLoggedIn) {
+      const response = await apiService.getMeeting(id);
+      const amIJoined = response.data.usersJoined.filter(item => item._id == userData._id);
+      if (amIJoined.length > 0) {
         setJoined(true);
+      } else {
+        setJoined(false);
       }
-      console.log('test', user);
-      console.log('filter', amIJoined);
       setMeetingDetail(response.data);
     } catch (error) {
       console.log(error);
     }
   };
 
-  const checkUser = () => {
-    if (!isLoading && user) {
-      setCurrentUser(user);
-    }
-  };
-
-  useEffect(() => {
-    getMeeting();
-    checkUser();
-  }, [id]);
-
   const getJoin = async () => {
     try {
-      const response = await apiService.joinMeeting(id);
-      setMeetingDetail(response.data.joined);
-      setJoined(true);
+      await apiService.joinMeeting(id);
+      getMeeting();
     } catch (error) {
       console.log(error);
     }
@@ -61,9 +47,8 @@ function MeetingDetail() {
 
   const unJoin = async () => {
     try {
-      const response = await apiService.unJoinMeeting(id);
-      setMeetingDetail(response.data.joined);
-      setJoined(false);
+      await apiService.unJoinMeeting(id);
+      getMeeting();
     } catch (error) {
       console.log(error);
     }
@@ -84,33 +69,33 @@ function MeetingDetail() {
               {meetingDetail.usersJoined !== undefined && meetingDetail.usersJoined.length > 0 ? (
                 meetingDetail.usersJoined.map(elem => <p key={elem._id}>{elem.name}</p>)
               ) : (
-                <p>No users joined yet</p>
+                <p className="mr-4">0</p>
               )}
             </div>
           </div>
-          <div className="flex flex-col space-y-2">
-            <strong>Location:</strong>
+          <div className="flex flex-col space-y-1">
+            <strong className="text-xl">Location:</strong>
             <p>{meetingDetail.location}</p>
-            <strong>Date</strong>
+            <strong className="text-xl">Date:</strong>
             <p>{meetingDetail.date.toString().slice(0, 10)}</p>
-            <strong>Hour</strong>
+            <strong className="text-xl">Hour:</strong>
             <p>{meetingDetail.hour}</p>
-            <strong>Description</strong>
+            <strong className="text-xl">Description:</strong>
             <p>{meetingDetail.description}</p>
           </div>
           {!isJoined ? (
             <button
-              className="border mt-5 text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-2 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              className="mt-2 w-30 bg-green-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2"
               onClick={getJoin}
             >
               Join Meeting
             </button>
           ) : (
             <button
-              className="border mt-5 text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-2 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              className=" mt-2 w-30 bg-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2"
               onClick={unJoin}
             >
-              I wont be able to attend
+              I will not be able to attend
             </button>
           )}
         </div>

@@ -19,40 +19,33 @@ function DogsList() {
 
   return (
     <>
-      <div className="card-dog">
-        {dogs.map(dog => {
-          return (
-            <>
-              {dog.image === '' ? (
-                <img
-                  key={dog.image}
-                  src="https://cdn.pixabay.com/photo/2016/02/19/15/46/labrador-retriever-1210559__340.jpg"
-                  width="350px"
-                />
-              ) : (
-                <img src={dog.image} alt="" width="350px" height="auto" />
-              )}
-              <div className="container-dog">
-                <strong>Name:</strong>
-                <p>{dog.name}</p>
-                <strong>Sex:</strong>
-                <p>{dog.sex}</p>
-                <strong>Race:</strong>
-                <p>{dog.race}</p>
-                <strong>Age:</strong>
-                <p>{dog.age}</p>
-                <strong>Size:</strong>
-                <p>{dog.size}</p>
+      {dogs.map(dog => {
+        return (
+          <div key={dog._id}>
+            <div className="card-dog">
+              <div className="img-dog">
+                {dog.image === '' ? (
+                  <img src="https://cdn.pixabay.com/photo/2016/02/19/15/46/labrador-retriever-1210559__340.jpg" />
+                ) : (
+                  <img src={dog.image} alt="" height="auto" />
+                )}
               </div>
-              <br />
-              <Link to={`/dogs/${dog._id}`}>
-                <button>Edit</button>
-              </Link>
-              <br />
-            </>
-          );
-        })}
-      </div>
+              <div className="container-dog ml-2">
+                <strong>Name: {dog.name}</strong>
+                <strong>Sex: {dog.sex}</strong>
+                <strong>Race: {dog.race}</strong>
+                <strong>Age: {dog.age}</strong>
+                <strong>Size: {dog.size}</strong>
+                <Link to={`/dogs/${dog._id}`}>
+                  <button className="bg-button mt-2 w-auto font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                    Edit
+                  </button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        );
+      })}
     </>
   );
 }

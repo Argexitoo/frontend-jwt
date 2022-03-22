@@ -88,8 +88,8 @@ class ApiService {
     return this.api.delete(`/meetings/${id}`);
   };
 
-  joinedMeeting = id => {
-    return this.api.get(`/meetings/${id}/joined`);
+  joinedMeeting = () => {
+    return this.api.get(`/meetings/joined`);
   };
 
   joinMeeting = id => {

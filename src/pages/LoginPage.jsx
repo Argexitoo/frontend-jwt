@@ -4,8 +4,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/auth.context';
 
 function LoginPage() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('argexito@hotmail.com');
+  const [password, setPassword] = useState('Albert93!');
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const navigate = useNavigate();
@@ -31,7 +31,8 @@ function LoginPage() {
 
   return (
     <div className="LoginPage">
-      <h1 className="text-center pt-10">Login</h1>
+      <h1 className="text-center pt-6 text-xl">MeetDogs</h1>
+      <img src="../favicon.png" alt="" width="30%" className="img-login pt-4" />
       <form onSubmit={handleLoginSubmit}>
         <div className="mb-6 pt-10">
           <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your Email</label>
@@ -41,7 +42,7 @@ function LoginPage() {
             value={email}
             onChange={handleEmail}
             placeholder="Email"
-            className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+            className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm w-full"
           />
         </div>
         <div className="mb-6">
@@ -65,7 +66,7 @@ function LoginPage() {
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
       <p>Dont have an account yet?</p>
-      <Link to={'/signup'}> Sign Up</Link>
+      <Link to={'/signup'}>Sign Up</Link>
     </div>
   );
 }

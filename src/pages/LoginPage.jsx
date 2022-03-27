@@ -4,8 +4,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/auth.context';
 
 function LoginPage() {
-  const [email, setEmail] = useState('argexito@hotmail.com');
-  const [password, setPassword] = useState('Albert93!');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const navigate = useNavigate();

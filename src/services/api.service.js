@@ -37,7 +37,7 @@ class ApiService {
     // return axios.post("http://localhost:5005/auth/verify");
   };
 
-  // DOGS ///////
+  // DOGS ////
   getMyDogs = () => {
     return this.api.get('/dog');
   };
